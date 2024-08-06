@@ -14,7 +14,7 @@ class ExpenseTracker:
         if not self.expenses:
             print("No expenses to show.")
         else:
-            table = [[i + 1, f"${e['amount']:.2f}", e['category']] for i, e in enumerate(self.expenses)]
+            table = [[i + 1, f"₹{e['amount']:.2f}", e['category']] for i, e in enumerate(self.expenses)]
             headers = ["Index", "Amount", "Category"]
             print(tabulate(table, headers, tablefmt="grid"))
 
@@ -22,15 +22,15 @@ class ExpenseTracker:
         if category:
             expenses = [e['amount'] for e in self.expenses if e['category'] == category]
             total = sum(expenses)
-            print(f"Total spending in '{category}': ${total:.2f}")
+            print(f"Total spending in '{category}': ₹{total:.2f}")
         else:
             total = sum(e['amount'] for e in self.expenses)
-            print(f"Total spending across all categories: ${total:.2f}")
+            print(f"Total spending across all categories: ₹{total:.2f}")
 
     def remove_expense(self, index):
         if 0 <= index < len(self.expenses):
             removed_expense = self.expenses.pop(index)
-            print(f"Removed expense: Amount: ${removed_expense['amount']:.2f}, Category: {removed_expense['category']}")
+            print(f"Removed expense: Amount: ₹{removed_expense['amount']:.2f}, Category: {removed_expense['category']}")
         else:
             print("Invalid index. No expense removed.")
 
@@ -46,7 +46,7 @@ class ExpenseTracker:
 
     def view_total_spending(self):
         total = sum(e['amount'] for e in self.expenses)
-        print(f"Total spending across all categories: ${total:.2f}")
+        print(f"Total spending across all categories: ₹{total:.2f}")
 
     def view_category_wise_spending(self):
         category_totals = {}

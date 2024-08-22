@@ -5,7 +5,7 @@ from fpdf import FPDF
 print("\n -------Welcome To Expense Tracking System-------")
 class ExpenseTracker:
     def __init__(self):
-        self.expenses = []
+        self.expenses = [] 
 
     def add_expense(self, amount, category):
         self.expenses.append({'amount': amount, 'category': category})
